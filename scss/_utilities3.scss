@@ -33,11 +33,26 @@ $utilities: map-merge(
         values: map-merge(
           map-get(map-get($utilities, "text-align"), "values"), (
             left: left,
-            right: right
+            right: right,
+            justify: justify
           ),
         ),
       ),
     ),
+    // "text-justify": (
+    //   property: text-justify,  // Note: Not really supported in Chrome
+    //   local-vars: (
+    //     "text-align": "justify"
+    //   ),
+    //   values: (
+    //     auto: auto,
+    //     inter-word: inter-word,
+    //     inter-character: inter-character,
+    //     none: none,
+    //     initial: initial,
+    //     inherit: inherit
+    //   )
+    // ),
 
     // Legacy/BS4 Left & Right borders
     "rounded-right": (
