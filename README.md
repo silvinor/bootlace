@@ -67,9 +67,19 @@ Provided are compiled CSS (`bootlace.*`), as well as compiled and minified CSS (
     <br>
 
     - Replace `{version}` with the version wanted and released here. *(Releases in Bootstrap may not be here.)*
-    - Replace `{valid SRI here}` with a valid SRI generated from [SRI Hash Generator](https://www.srihash.org/)  
+        - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@5.3.7/dist/css/bootlace.min.css`"
+        - You can also use `HEAD` to point to the latest, but the SRI may change and its inclusion is moot.<br>
+              Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@HEAD/dist/css/bootlace.min.css`"
+    - Replace `{valid SRI here}` with a valid SRI generated from [SRI Hash Generator](https://www.srihash.org/)
+        - Example: "`sha384-eot1opfzGFlwUV+MPPLx3Bn3q/s3cWjnH2wWSurFX36RR6y5XbAuJ1d9gbQUiYKG`"
 
-3. *... should work* &#x1F937;.
+3. *(Optional)* Add the `color-scheme` meta tag to the `<head>` of your html file.
+
+    ```
+    <meta name="color-scheme" content="light dark">
+    ```
+
+4. *... should work* &#x1F937;.
   
 
 ## Versioning

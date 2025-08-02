@@ -104,7 +104,18 @@ $utilities: map-merge(
           ),
         ),
       ),
-    )
+    ),
+
+    // Text font sets
+    "text-font": (
+      property: font-family,
+      class: text,
+      values: (
+        "sans-serif": var(--#{$prefix}font-sans-serif),
+        "serif": var(--#{$prefix}font-serif),
+        "monospace": var(--#{$prefix}font-monospace)
+      ),
+    ),
 
   )
 );
