@@ -1,0 +1,36 @@
+/* From Bootstrap V4 */
+
+.jumbotron {
+
+  --#{$prefix}jumbotron-color: #{$jumbotron-color};
+  --#{$prefix}jumbotron-bg: #{$jumbotron-bg};
+  --#{$prefix}jumbotron-padding-y: #{$jumbotron-padding};
+  --#{$prefix}jumbotron-padding-x: #{$jumbotron-padding * .5};
+
+  padding: var(--#{$prefix}jumbotron-padding-y) var(--#{$prefix}jumbotron-padding-x);
+  margin-bottom: var(--#{$prefix}jumbotron-padding-y);
+  color: var(--#{$prefix}jumbotron-color);
+  background-color: var(--#{$prefix}jumbotron-bg);
+  @include border-radius($border-radius-lg);
+
+  @include media-breakpoint-up(sm) {
+    --#{$prefix}jumbotron-padding-y: #{$jumbotron-padding * 2};
+    --#{$prefix}jumbotron-padding-x: #{$jumbotron-padding};
+  }
+}
+
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  @include border-radius(0);
+}
+
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+    .jumbotron {
+      --#{$prefix}jumbotron-color: #{$jumbotron-color-dark};
+      --#{$prefix}jumbotron-bg: #{$jumbotron-bg-dark};
+    }
+  }
+}

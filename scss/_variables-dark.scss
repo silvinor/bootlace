@@ -1,0 +1,204 @@
+// Dark color mode variables
+//
+// Custom variables for the `[data-bs-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
+
+//
+// Color system
+//
+
+// scss-docs-start gray-color-variables
+$white-dark:    #fcfcfc !default;
+$gray-100-dark: #f8f9fa !default; // from https://bootswatch.com/darkly
+$gray-200-dark: #ebebeb !default; // from https://bootswatch.com/darkly
+$gray-300-dark: #dee2e6 !default; // from https://bootswatch.com/darkly
+$gray-400-dark: #ced4da !default; // from https://bootswatch.com/darkly
+$gray-500-dark: #adb5bd !default; // from https://bootswatch.com/darkly
+$gray-600-dark: #888 !default;    // from https://bootswatch.com/darkly
+$gray-700-dark: #444 !default;    // from https://bootswatch.com/darkly
+$gray-800-dark: #303030 !default; // from https://bootswatch.com/darkly
+$gray-900-dark: #222 !default;    // from https://bootswatch.com/darkly
+$black-dark:    #111 !default;    // from https://bootswatch.com/darkly
+// scss-docs-end gray-color-variables
+
+// fusv-disable
+// scss-docs-start gray-colors-map
+$grays-dark: (
+  "100": $gray-100-dark,
+  "200": $gray-200-dark,
+  "300": $gray-300-dark,
+  "400": $gray-400-dark,
+  "500": $gray-500-dark,
+  "600": $gray-600-dark,
+  "700": $gray-700-dark,
+  "800": $gray-800-dark,
+  "900": $gray-900-dark
+) !default;
+// scss-docs-end gray-colors-map
+// fusv-enable
+
+
+// scss-docs-start color-variables
+$blue-dark:    #375a7f !default; // A personal preference, darker than #069
+$indigo-dark:  #673ab7 !default; // from https://uxdesign.cc/dark-mode-ui-design-the-definitive-guide-part-1-color-53dcfaea5129
+$purple-dark:  #654ea3 !default; // Panatone CotY 2018
+$pink-dark:    #e83e8c !default; // from https://bootswatch.com/darkly
+$red-dark:     #e74c3c !default; // from https://bootswatch.com/darkly
+$orange-dark:  #fd7e14 !default; // from https://bootswatch.com/darkly
+$yellow-dark:  #f39c12 !default; // from https://bootswatch.com/darkly
+$green-dark:   #00bc8c !default; // from https://bootswatch.com/darkly
+$teal-dark:    #45b5aa !default; // Panatone CotY 2010
+$cyan-dark:    #3498db !default; // from https://bootswatch.com/darkly (was #17a2b8)
+// scss-docs-end color-variables
+
+// scss-docs-start colors-map
+$colors-dark: (
+  "blue":       $blue-dark,
+  "indigo":     $indigo-dark,
+  "purple":     $purple-dark,
+  "pink":       $pink-dark,
+  "red":        $red-dark,
+  "orange":     $orange-dark,
+  "yellow":     $yellow-dark,
+  "green":      $green-dark,
+  "teal":       $teal-dark,
+  "cyan":       $cyan-dark,
+  "black":      $black-dark,
+  "white":      $white-dark,
+  "gray":       $gray-600-dark,
+  "gray-dark":  $gray-800-dark
+) !default;
+// scss-docs-end colors-map
+
+
+// scss-docs-start theme-color-variables
+$primary-dark:       $blue-dark !default;
+$secondary-dark:     $gray-600-dark !default;
+$success-dark:       $green-dark !default;
+$info-dark:          $cyan-dark !default;
+$warning-dark:       $yellow-dark !default;
+$danger-dark:        $red-dark !default;
+$light-dark:         $gray-100-dark !default;
+$dark-dark:          $gray-900-dark !default;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors-dark: (
+  "primary":    $primary-dark,
+  "secondary":  $secondary-dark,
+  "success":    $success-dark,
+  "info":       $info-dark,
+  "warning":    $warning-dark,
+  "danger":     $danger-dark,
+  "light":      $light-dark,
+  "dark":       $dark-dark
+) !default;
+// scss-docs-end theme-colors-map
+
+
+
+//
+// Global colors
+//
+
+// scss-docs-start sass-dark-mode-vars
+// scss-docs-start theme-text-dark-variables
+$primary-text-emphasis-dark:        tint-color($primary-dark, 40%) !default;
+$secondary-text-emphasis-dark:      tint-color($secondary-dark, 40%) !default;
+$success-text-emphasis-dark:        tint-color($success-dark, 40%) !default;
+$info-text-emphasis-dark:           tint-color($info-dark, 40%) !default;
+$warning-text-emphasis-dark:        tint-color($warning-dark, 40%) !default;
+$danger-text-emphasis-dark:         tint-color($danger-dark, 40%) !default;
+$light-text-emphasis-dark:          $gray-100-dark !default;
+$dark-text-emphasis-dark:           $gray-300-dark !default;
+// scss-docs-end theme-text-dark-variables
+
+// scss-docs-start theme-bg-subtle-dark-variables
+$primary-bg-subtle-dark:            shade-color($primary-dark, 80%) !default;
+$secondary-bg-subtle-dark:          shade-color($secondary-dark, 80%) !default;
+$success-bg-subtle-dark:            shade-color($success-dark, 80%) !default;
+$info-bg-subtle-dark:               shade-color($info-dark, 80%) !default;
+$warning-bg-subtle-dark:            shade-color($warning-dark, 80%) !default;
+$danger-bg-subtle-dark:             shade-color($danger-dark, 80%) !default;
+$light-bg-subtle-dark:              $gray-800-dark !default;
+$dark-bg-subtle-dark:               mix($gray-800-dark, $black-dark) !default;
+// scss-docs-end theme-bg-subtle-dark-variables
+
+// scss-docs-start theme-border-subtle-dark-variables
+$primary-border-subtle-dark:        shade-color($primary-dark, 40%) !default;
+$secondary-border-subtle-dark:      shade-color($secondary-dark, 40%) !default;
+$success-border-subtle-dark:        shade-color($success-dark, 40%) !default;
+$info-border-subtle-dark:           shade-color($info-dark, 40%) !default;
+$warning-border-subtle-dark:        shade-color($warning-dark, 40%) !default;
+$danger-border-subtle-dark:         shade-color($danger-dark, 40%) !default;
+$light-border-subtle-dark:          $gray-700-dark !default;
+$dark-border-subtle-dark:           $gray-800-dark !default;
+// scss-docs-end theme-border-subtle-dark-variables
+
+$body-color-dark:                   $gray-300-dark !default;
+$body-bg-dark:                      $gray-900-dark !default;
+$body-secondary-color-dark:         rgba($body-color-dark, .75) !default;
+$body-secondary-bg-dark:            $gray-800-dark !default;
+$body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
+$body-tertiary-bg-dark:             mix($gray-800-dark, $gray-900-dark, 50%) !default;
+$body-emphasis-color-dark:          $white-dark !default;
+$border-color-dark:                 $gray-700-dark !default;
+$border-color-translucent-dark:     rgba($white-dark, .15) !default;
+$headings-color-dark:               inherit !default;
+$link-color-dark:                   tint-color($primary-dark, 40%) !default;
+$link-hover-color-dark:             shift-color($link-color-dark, -$link-shade-percentage) !default;
+$code-color-dark:                   tint-color($pink-dark, 40%) !default;
+$mark-color-dark:                   $body-color-dark !default;
+$mark-bg-dark:                      shade-color($yellow-dark, 60%) !default;
+
+
+//
+// Forms
+//
+
+$form-select-indicator-color-dark:  $body-color-dark !default;
+$form-select-indicator-dark:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
+
+$form-switch-color-dark:            rgba($white-dark, .25) !default;
+$form-switch-bg-image-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-dark}'/></svg>") !default;
+
+// scss-docs-start form-validation-colors-dark
+$form-valid-color-dark:             tint-color($green-dark, 40%) !default;
+$form-valid-border-color-dark:      tint-color($green-dark, 40%) !default;
+$form-invalid-color-dark:           tint-color($red-dark, 40%) !default;
+$form-invalid-border-color-dark:    tint-color($red-dark, 40%) !default;
+// scss-docs-end form-validation-colors-dark
+
+
+//
+// Jumbotron
+//
+
+$jumbotron-color-dark:              null !default;
+$jumbotron-bg-dark:                 $gray-800-dark !default;
+
+
+//
+// Accordion
+//
+
+$accordion-icon-color-dark:         $primary-text-emphasis-dark !default;
+$accordion-icon-active-color-dark:  $primary-text-emphasis-dark !default;
+
+$accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
+$accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
+// scss-docs-end sass-dark-mode-vars
+
+
+//
+// Carousel
+//
+
+$carousel-indicator-active-bg-dark:   $carousel-dark-indicator-active-bg !default;
+$carousel-caption-color-dark:         $carousel-dark-caption-color !default;
+$carousel-control-icon-filter-dark:   $carousel-dark-control-icon-filter !default;
+
+//
+// Close button
+//
+
+$btn-close-filter-dark:             $btn-close-white-filter !default;
