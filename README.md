@@ -14,9 +14,9 @@
 
 ## Bootlace
 
-[Bootstrap](https://github.com/twbs/bootstrap) claims it's *"dark mode"* enabled - it's not[^1]. It is however *"theme enabled"*, and that's okay. **"Dark Mode"** implies that CSS' browser `prefers-color-scheme` is supported - that is the [CSS Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme) specification is met - and is supported out of box. *(`prefers-color-scheme: pink` is not a thing, regardless of how much they want it to be.)* The Bootstrap Authors are however set on their ways, and, rightly, they should be. But this is open-source, and so we can create our own versions.
+[Bootstrap](https://github.com/twbs/bootstrap) claims it's *"dark mode"* enabled - it's not[^1]. It is however *"theme enabled"*, and that's okay. **"Dark Mode"** implies that CSS' browser `prefers-color-scheme` is supported - that is the [CSS Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme) specification is met - and is supported out of box. *(`prefers-color-scheme: pink` is not a thing, regardless of how much they want it to be.)* The Bootstrap Authors are however set in their ways, and, rightly, they should be. But this is open-source, and so we can create our own versions.
 
-**Bootlace** is a personal take on Bootstrap to make it true *"dark mode"* enabled. I've also wound in some legacy bootstrap classes to make it more version portable, and also removed React *(et al.)* specific classes *(because you should be using Tailwind if you're developing on React.)*
+**Bootlace** is a personal take on Bootstrap to make it true *"dark mode"* enabled. I've also wound in some legacy bootstrap classes to make it more version portable, and also removed React *(et al.)* specific classes *(because you should be using Tailwind if you're developing on React[^1].)*
 
 
 ## Table of contents
@@ -68,12 +68,12 @@ Provided are compiled CSS (`bootlace.*`), as well as compiled and minified CSS (
 
     - Replace `{version}` with the version wanted and released here. *(Releases in Bootstrap may not be here.)*
         - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@5.3.7/dist/css/bootlace.min.css`"
-        - You can also use `HEAD` to point to the latest, but the SRI may change and its inclusion is moot.<br>
-              Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@HEAD/dist/css/bootlace.min.css`"
     - Replace `{valid SRI here}` with a valid SRI generated from [SRI Hash Generator](https://www.srihash.org/)
         - Example: "`sha384-eot1opfzGFlwUV+MPPLx3Bn3q/s3cWjnH2wWSurFX36RR6y5XbAuJ1d9gbQUiYKG`"
+    - You can also replace `{version}` with `HEAD` to use to the latest commit, but the SRI may change and its inclusion is moot.<br>
+        - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@HEAD/dist/css/bootlace.min.css`"
 
-3. *(Optional)* Add the `color-scheme` meta tag to the `<head>` of your html file.
+3. Add the `color-scheme` meta tag to the `<head>` of your html file.
 
     ```
     <meta name="color-scheme" content="light dark">
