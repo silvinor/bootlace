@@ -105,7 +105,12 @@ $utilities: map-merge(
       (
         values: map-merge(
           map-get(map-get($utilities, "color"), "values"), (
-            "inverted": var(--#{$prefix}body-bg)
+            "inverted": var(--#{$prefix}body-bg),
+            "inherit": inherit,
+            "initial": initial,
+            "revert": revert,
+            "revert-layer": revert-layer,
+            "unset": unset
           ),
         ),
       ),

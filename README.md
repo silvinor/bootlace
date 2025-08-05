@@ -62,7 +62,7 @@ Provided are compiled CSS (`bootlace.*`), as well as compiled and minified CSS (
 2. Replace the link to `bootsrap.css` with our [CDN](https://cdn.jsdelivr.net/gh/silvinor/bootlace/) link to `bootlace.css`.
 
     ```
-    <link href="https://cdn.jsdelivr.net/gh/silvinor/bootlace@{version}/dist/css/bootlace.min.css" rel="stylesheet" integrity="{valid SRI here}" crossorigin="anonymous">`
+    <link href="https://cdn.jsdelivr.net/gh/silvinor/bootlace@{version}/dist/css/bootlace.min.css" rel="stylesheet" integrity="{valid SRI here}" crossorigin="anonymous">
     ```
     <br>
 
