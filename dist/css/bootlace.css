@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Bootlace  v5.3.7
+ * Bootlace  v5.3.8
  * Copyright 2025 Silvino R.
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/silvinor/bootlace/blob/main/LICENSE.md)
@@ -589,6 +589,10 @@ legend + * {
 [type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
+}
+[type=search]::-webkit-search-cancel-button {
+  cursor: pointer;
+  filter: grayscale(1);
 }
 
 /* rtl:raw:

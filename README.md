@@ -67,9 +67,8 @@ Provided are compiled CSS (`bootlace.*`), as well as compiled and minified CSS (
     <br>
 
     - Replace `{version}` with the version wanted and released here. *(Releases in Bootstrap may not be here.)*
-        - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@5.3.7/dist/css/bootlace.min.css`"
+        - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@5.3.8/dist/css/bootlace.min.css`"
     - Replace `{valid SRI here}` with a valid SRI generated from [SRI Hash Generator](https://www.srihash.org/)
-        - Example: "`sha384-eot1opfzGFlwUV+MPPLx3Bn3q/s3cWjnH2wWSurFX36RR6y5XbAuJ1d9gbQUiYKG`"
     - You can also replace `{version}` with `HEAD` to use to the latest commit, but the SRI may change and its inclusion is moot.<br>
         - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@HEAD/dist/css/bootlace.min.css`"
 
