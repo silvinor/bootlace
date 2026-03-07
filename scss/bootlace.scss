@@ -51,12 +51,13 @@
 @import "../node_modules/bootstrap/scss/tooltip";
 @import "../node_modules/bootstrap/scss/popover";
 @import "carousel2";
-// @import "../node_modules/bootstrap/scss/spinners"; // Only useful for React et al.
+@import "../node_modules/bootstrap/scss/spinners";
 @import "../node_modules/bootstrap/scss/offcanvas";
-// @import "../node_modules/bootstrap/scss/placeholders"; // Only useful for React et al.
+@import "../node_modules/bootstrap/scss/placeholders";
 
 // Helpers
 @import "../node_modules/bootstrap/scss/helpers";
 
 // Utilities
 @import "../node_modules/bootstrap/scss/utilities/api";
+@import "utilities/display-dark3";

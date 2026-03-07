@@ -12,7 +12,11 @@
 }
 
 @include root_root() {
-  // color-scheme: light; // Not needed when using <meta name="color-scheme" content="light dark">
+  // Usually not needed when using:
+  //     <meta name="color-scheme" content="light dark">
+  // ... but becuase this is a drop-in replacement for Boostrap,
+  // most site will not have that header tag.
+  color-scheme: light;
 
   // Note: Custom variable values only support SassScript inside `#{}`.
 
@@ -146,7 +150,7 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark, true) {
-    // color-scheme: dark; // not needed when using <meta name="color-scheme" content="light dark">
+    color-scheme: dark; // see note above
 
     @each $color, $value in $colors-dark {
       --#{$prefix}#{$color}: #{$value};

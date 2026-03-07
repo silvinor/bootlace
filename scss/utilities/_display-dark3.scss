@@ -1,0 +1,27 @@
+$display-utility-values: map-get(map-get($utilities, "display"), "values") !default;
+
+$display-dark-utility: (
+  responsive: false,
+  property: display,
+  class: d-dark,
+  values: $display-utility-values
+) !default;
+
+$display-light-utility: (
+  responsive: false,
+  property: display,
+  class: d-light,
+  values: $display-utility-values
+) !default;
+
+@mixin generate-color-mode-display-utility($utility) {
+  @include generate-utility($utility);
+}
+
+@include color-mode(dark) {
+  @include generate-color-mode-display-utility($display-dark-utility);
+}
+
+@include color-mode(light) {
+  @include generate-color-mode-display-utility($display-light-utility);
+}
