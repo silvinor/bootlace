@@ -14,10 +14,19 @@
 
 ## Bootlace
 
-[Bootstrap](https://github.com/twbs/bootstrap) claims it's *"dark mode"* enabled - it's not[^1]. It is however *"theme enabled"*, and that's okay. **"Dark Mode"** implies that CSS' browser `prefers-color-scheme` is supported - that is the [CSS Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme) specification is met - and is supported out of box. *(`prefers-color-scheme: pink` is not a thing, regardless of how much they want it to be.)* The Bootstrap Authors are however set in their ways, and, rightly, they should be. But this is open-source, and so we can create our own versions.
+> :warning: This is a **very** opinionated variant of Bootstrap :bangbang:
 
-**Bootlace** is a personal take on Bootstrap to make it true *"dark mode"* enabled. I've also wound in some legacy bootstrap classes to make it more version portable, and also removed React *(et al.)* specific classes *(because you should be using Tailwind if you're developing on React[^1].)*
+[Bootstrap](https://github.com/twbs/bootstrap) claims it's *"dark mode"* enabled - it's not[^1]. It is however *"theme enabled"*, and that's okay. **"Dark Mode"** implies that CSS' browser `prefers-color-scheme` is supported - that is the [CSS Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme) specification is met - and is supported out of box. *(`prefers-color-scheme: pink` is not a thing, regardless of how much they want it to be.)* The Bootstrap Authors are however set in their ways, and, rightly, they should be - it's their project to impose their opinions on. But this is open-source, and so we can create our own versions.
 
+**Bootlace** is a personal take on Bootstrap to make it true *"dark mode"* enabled. This version forces the CSS Media Queries `prefers-color-scheme` methodology and removes the runtime `data-bs-theme` shenanigans[^1]. Why? Read [here](https://github.com/silvinor/bootstrap-dark/blob/master/README.md). Also included:
+
+1. Added `color-scheme` to `:root` to ensure scrollbars are the correct color.
+1. Wound in some legacy Bootstrap 4 classes to make it more version portable.
+    - `jumbotron`
+    - `media`
+1. Added `text-{font}` classes. (i.e., `sans-serif`, `serif` & `monospace`)
+1. Added some unique classes to help with dark mode implementation, e.g. `d-dark-*` and `d-light-*` classes.
+2. `.min` variants of the CSS do not include source-maps[^1].
 
 ## Table of contents
 
@@ -72,11 +81,13 @@ Provided are compiled CSS (`bootlace.*`), as well as compiled and minified CSS (
     - You can also replace `{version}` with `HEAD` to use to the latest commit, but the SRI may change and its inclusion is moot.<br>
         - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@HEAD/dist/css/bootlace.min.css`"
 
+<!--
 3. Add the `color-scheme` meta tag to the `<head>` of your html file.
 
     ```
     <meta name="color-scheme" content="light dark">
     ```
+-->
 
 4. *... should work* &#x1F937;.
   
@@ -90,7 +101,9 @@ Bootlace is versioned to mirror the version of Bootstrap that its based on.
 
 Code released under the [MIT License](https://github.com/silvior/bootlace/blob/main/LICENSE,md).
 
-Includes parts from [Bootstrap](https://github.com/twbs/bootstrap), code and documentation copyright 2011-2025 the [Bootstrap Authors](https://github.com/twbs/bootstrap/graphs/contributors), and released under the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
+Includes parts from [Bootstrap](https://github.com/twbs/bootstrap), code and documentation copyright 2011-2025 the [Bootstrap Authors](https://github.com/twbs/bootstrap/graphs/contributors), and also released under the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
 
+
+<p align="center">⁂</p>
 
 [^1]: Opinion
