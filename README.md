@@ -5,113 +5,148 @@
 </p>
 
 <h1 align="center">Bootlace</h1>
-<h3 align="center">A personal take on Bootstrap 5</h3>
+<h3 align="center">A personal take on Bootstrap 6</h3>
 
 <p align="center">
-  Bootstrap, but with changes that the OG would not accept.
+  Bootstrap, with light and dark appearance driven by the browser or OS preference.
 </p>
 
 ## Bootlace
 
-> :warning: _This is a **very** opinionated variant of Bootstrap 5 CSS_ :bangbang:
+Bootlace is an opinionated CSS build based on Bootstrap 6.0.0-alpha.1.
+It keeps the Bootlace palette, fonts, and selected legacy classes while adopting the Bootstrap 6 components and Sass modules.
+The upstream release is an alpha, so class names and behavior can change.
 
-[Bootstrap](https://github.com/twbs/bootstrap) claims it's _"dark mode"_ enabled - it's not[^1]. It is however _"theme enabled"_, and that's okay. **"Dark Mode"** implies that CSS' browser `prefers-color-scheme` is supported - that is the [CSS Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme) specification is met - and is supported out of box. _(`prefers-color-scheme: pink` is not a thing, regardless of how much they want it to be.)_ The Bootstrap Authors are however set in their ways, and, rightly, they should be - it's their project to impose their opinions on. But this is open-source, and so we can create our own versions.
+Bootlace supports exactly two appearance modes: light and dark.
+Both modes always ship together, and the browser or OS preference alone selects the mode.
+Light is the default, and `@media (prefers-color-scheme: dark)` selects dark mode.
+The root `color-scheme` also keeps native controls and scrollbars consistent with that preference.
 
-**Bootlace** is a personal take on Bootstrap to make it true _"dark mode"_ enabled. This version forces the CSS Media Queries `prefers-color-scheme` methodology and removes the runtime `data-bs-theme` shenanigans[^1]. Why? Read [here](https://github.com/silvinor/bootstrap-dark/blob/master/README.md).
+Theme attributes, mode toggles, and forced light or dark classes do not select the appearance.
+Named component colors such as `.theme-primary` and `.theme-danger` remain available and follow the selected appearance.
+These colors describe component roles rather than additional appearance modes.
 
-Also included:
+## Contents
 
-1. Added `color-scheme` to `:root` to ensure scrollbars are the correct color.
-1. Wound in some legacy Bootstrap 4 classes to make it more version portable.
-   - `jumbotron`
-   - `media`
-1. Added `text-{font}` classes. (i.e., `sans-serif`, `serif` & `monospace`)
-1. Added some unique classes to help with dark mode implementation, e.g. `d-dark-*` and `d-light-*` classes.
-1. `.min` variants of the CSS do not include source-maps[^1].
-
-But does not include:
-
-1. A "Bootlace JS" variant _(please use the original repo for `bootstrap.js`)_
-1. Removed "enhance the experience of your application" items, including: Spinners & Placeholders
-
-   > _These exclusions are opinion based, since I often use other forms of these and find them less useful._
-
-## Table of contents
-
-- [What’s included](#whats-included)
+- [What is included](#what-is-included)
 - [How to use](#how-to-use)
+- [Migrating from Bootstrap 5](#migrating-from-bootstrap-5)
+- [Build and customize](#build-and-customize)
 - [Versioning](#versioning)
 - [Copyright and license](#copyright-and-license)
 
----
+## What is included
 
-## What’s included
+The main stylesheet includes Bootstrap 6 components, helpers, and utilities, including spinners and placeholders.
+Bootlace also retains these additions:
 
-Within the download you’ll find the following directories and files, logically grouping common assets and providing both compiled and minified variations.
+- Bootstrap 4 `.jumbotron`, `.jumbotron-fluid`, `.media`, and `.media-body` classes.
+- Legacy spacing, alignment, float, and corner classes, documented in [utilities3](docs/utilities3.md).
+- `.text-sans-serif`, `.text-serif`, and `.text-monospace` font helpers.
+- `.text-inverted`, `.bg-inverted`, and text color keyword helpers.
+- Preference-based `.d-dark-*` and `.d-light-*` display helpers, documented in [display-dark3](docs/display-dark3.md).
 
-<details>
-  <summary>Download contents</summary>
+The Reboot stylesheet supplies base element styles without the full component and utility set.
+Both stylesheets include the Bootlace palette, fonts, and OS-driven light and dark support.
+Expanded files include source maps for browser developer tools.
+Minified files do not include source maps.
 
 ```text
-bootlace/
-└── css/
-    ├── bootlace-reboot.css
-    ├── bootlace-reboot.css.map
-    ├── bootlace-reboot.min.css
-    ├── bootlace-reboot.rtl.css
-    ├── bootlace-reboot.rtl.min.css
-    ├── bootlace.css
-    ├── bootlace.css.map
-    ├── bootlace.min.css
-    ├── bootlace.rtl.css
-    └── bootlace.rtl.min.css
+dist/css/
+├── bootlace.css
+├── bootlace.css.map
+├── bootlace.min.css
+├── bootlace.rtl.css
+├── bootlace.rtl.css.map
+├── bootlace.rtl.min.css
+├── bootlace-reboot.css
+├── bootlace-reboot.css.map
+├── bootlace-reboot.min.css
+├── bootlace-reboot.rtl.css
+├── bootlace-reboot.rtl.css.map
+└── bootlace-reboot.rtl.min.css
 ```
 
-</details>
-
-Provided are compiled CSS (`bootlace.*`), as well as compiled and minified CSS (`bootlace.min.*`). [Source maps](https://web.dev/articles/source-maps) (`bootlace.*.map`) for non minified files are available for use with certain browsers’ developer tools.
+RTL means right-to-left layout.
+Use the `.rtl.css` or `.rtl.min.css` file for that layout direction.
+Bootlace supplies CSS only and does not include a separate JavaScript build.
 
 ## How to use
 
-1. [Get started with Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) as usual.
+Start with the [Bootstrap 6 documentation](https://getbootstrap.com/docs/6.0/).
+Copy `dist/css/bootlace.min.css` from this checkout into your site's CSS directory.
+Replace the Bootstrap stylesheet link with the Bootlace link:
 
-2. Replace the link to `bootsrap.css` with our [CDN](https://cdn.jsdelivr.net/gh/silvinor/bootlace/) link to `bootlace.css`.
+```html
+<link rel="stylesheet" href="css/bootlace.min.css">
+```
 
-   ```html
-   <link
-     href="https://cdn.jsdelivr.net/gh/silvinor/bootlace@{version}/dist/css/bootlace.min.css"
-     rel="stylesheet"
-     integrity="{valid SRI here}"
-     crossorigin="anonymous"
-   />
-   ```
+Use `bootlace-reboot.min.css` instead when you only need base element styles.
+Load the full stylesheet once when you need components and utilities.
+The full stylesheet already includes Reboot.
 
-   - Replace _{version}_ with the version wanted and released here. _(Releases in Bootstrap may not be here.)_
-     - Example: `https://cdn.jsdelivr.net/gh/silvinor/bootlace@5.3.8/dist/css/bootlace.min.css`
-   - Replace _{valid SRI here}_ with a valid SRI (e.g., generated from [SRI Hash Generator](https://www.srihash.org/))
-   - You can also replace `{version}` with `HEAD` to use to the latest commit, but the SRI may change and its inclusion is moot.<br>
-     - Example: "`https://cdn.jsdelivr.net/gh/silvinor/bootlace@HEAD/dist/css/bootlace.min.css`"
+Use the browser or OS appearance preference to select light or dark mode.
+No appearance attribute or JavaScript initialization is required.
+For content that appears only in dark mode, use `class="d-none d-dark-block"`.
+For content that appears only in light mode, use `class="d-block d-dark-none"`.
 
-<!--
-3. Add the `color-scheme` meta tag to the `<head>` of your html file.
+For interactive components, follow the Bootstrap 6 JavaScript instructions and use JavaScript that matches the CSS version.
+Bootstrap 5 JavaScript and markup are not interchangeable with Bootstrap 6.
+Follow the [Bootstrap browser requirements](https://getbootstrap.com/docs/6.0/getting-started/browsers-devices/) for supported browsers.
 
-    ```
-    <meta name="color-scheme" content="light dark">
-    ```
--->
+## Migrating from Bootstrap 5
 
-4. _... should work_ &#x1F937;.
+Existing Bootstrap 5 pages need class and markup changes.
+Responsive names change, for example `d-md-none` becomes `md:d-none` and `col-md-6` becomes `md:col-6`.
+Component colors also change, for example `btn btn-primary` becomes `btn-solid theme-primary`.
+
+Modal, Offcanvas, and Dropdown become Dialog, Drawer, and Menu.
+Accordion and several form controls also need new markup.
+Some unchanged utility names produce different sizes because the spacing and radius scales change.
+
+Read the local [class migration reference](docs/bootstrap6-class-migration.md) and the [upstream migration guide](https://getbootstrap.com/docs/6.0/guides/migration/).
+The [exact class inventory](docs/bootstrap5-classes-absent-in-bootstrap6.txt) lists Bootstrap 5 class selectors absent from the Bootstrap 6 alpha stylesheet.
+The retained Bootstrap 4 additions do not provide general Bootstrap 5 compatibility.
+
+Upstream examples can use appearance attributes or `.color-scheme-*` utilities.
+Bootlace deliberately removes those appearance overrides.
+Keep both modes controlled by the OS preference when adapting examples.
+
+## Build and customize
+
+From the repository root, install the locked dependencies:
+
+```sh
+npm ci
+```
+
+For the full CSS build, run:
+
+```sh
+npm run css
+```
+
+That command compiles Sass, adds vendor prefixes, generates RTL files, minifies the CSS, and runs the CSS tests.
+For Sass compilation alone, run `npm run css-compile`.
+Compilation alone does not refresh the RTL or minified files.
+
+Bootstrap 6 uses Sass modules with `@use`, `@forward`, and `with (...)` configuration.
+Bootlace's palette, fonts, and shared color overrides live in [`scss/_theme3.scss`](scss/_theme3.scss).
+[`scss/_root2.scss`](scss/_root2.scss) preserves the root variables and enforces OS-only appearance selection.
+The old Bootstrap 5 `_variables.scss` and `_variables-dark.scss` files are no longer part of this build.
+
+Read [docs/bootlace.md](docs/bootlace.md) and the matching component notes before changing local Sass.
+Keep local explanations current when changing a replacement or addition.
+[`test-reboot.html`](test-reboot.html) provides native HTML specimens for inspecting the compiled Reboot stylesheet in a browser.
 
 ## Versioning
 
-Bootlace is versioned to mirror the version of Bootstrap that its based on.
+Bootlace release numbers track the Bootstrap version used as their base.
+This build is based on Bootstrap 6.0.0-alpha.1.
+When loading CSS from a CDN, pin a published Bootlace release tag for the required version.
 
 ## Copyright and license
 
-Code released under the [MIT License](https://github.com/silvior/bootlace/blob/main/LICENSE,md).
-
-Includes parts from [Bootstrap](https://github.com/twbs/bootstrap), code and documentation copyright 2011-2025 the [Bootstrap Authors](https://github.com/twbs/bootstrap/graphs/contributors), and also released under the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
-
-<p align="center">⁂</p>
-
-[^1]: **Opinion**... as in mine. Your opinions may differ..
+Bootlace is copyright Silvino R. and includes code from the Bootstrap Authors.
+Code is released under the [MIT License](LICENSE.md).
+Bootstrap is also released under the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).

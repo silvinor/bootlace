@@ -2,62 +2,71 @@
 // Files ending in 2 are REPLACEMENT files
 // Files ending in 3 are ADDITIONAL files
 // Files ending in 4 are borrowed from Bootstrap 4
+// Files ending in 5 are borrowed from Bootstrap 5
 // -----------------------------------------------
 
 // @charset "utf-8";
 
-@import "mixins/banner2";
-@include bsBanner("");
+@forward "banner2";
 
-// Configuration
-@import "../node_modules/bootstrap/scss/functions";
-@import "variables";
-@import "variables-dark";
-// $color-mode-type: data; // DONE : TESTING ONLY
-@import "../node_modules/bootstrap/scss/maps";
-@import "maps3";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/utilities";
-@import "utilities3";
+// Configuration variables and maps, such as $utilities. Forwarding config makes
+// them configurable from this entrypoint with `@use ... with (...)`. Emits no CSS.
+@forward "../node_modules/bootstrap/scss/config" hide $color-mode-type with (
+  // Components must inherit the OS-selected root scheme.
+  $utilities: ("color-scheme": (enabled: false))
+);
+@forward "theme3";
+@forward "../node_modules/bootstrap/scss/colors";
 
-// Layout & components
-@import "root2";
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
-@import "../node_modules/bootstrap/scss/images";
-@import "../node_modules/bootstrap/scss/containers";
-@import "../node_modules/bootstrap/scss/grid";
-@import "../node_modules/bootstrap/scss/tables";
-@import "../node_modules/bootstrap/scss/forms";
-@import "../node_modules/bootstrap/scss/buttons";
-@import "../node_modules/bootstrap/scss/transitions";
-@import "../node_modules/bootstrap/scss/dropdown";
-@import "../node_modules/bootstrap/scss/button-group";
-@import "../node_modules/bootstrap/scss/nav";
-@import "navbar2";
-@import "../node_modules/bootstrap/scss/card";
-@import "../node_modules/bootstrap/scss/accordion";
-@import "../node_modules/bootstrap/scss/breadcrumb";
-@import "../node_modules/bootstrap/scss/pagination";
-@import "../node_modules/bootstrap/scss/badge";
-@import "jumbotron4";
-@import "../node_modules/bootstrap/scss/alert";
-@import "../node_modules/bootstrap/scss/progress";
-@import "media4";
-@import "../node_modules/bootstrap/scss/list-group";
-@import "close2";
-@import "../node_modules/bootstrap/scss/toasts";
-@import "../node_modules/bootstrap/scss/modal";
-@import "../node_modules/bootstrap/scss/tooltip";
-@import "../node_modules/bootstrap/scss/popover";
-@import "carousel2";
-// @import "../node_modules/bootstrap/scss/spinners";
-@import "../node_modules/bootstrap/scss/offcanvas";
-// @import "../node_modules/bootstrap/scss/placeholders";
+// Semantic color maps describe component colors, not selectable appearance modes.
+// Bootlace supplies both palettes. Only the OS preference selects the mode.
+@forward "../node_modules/bootstrap/scss/theme";
+
+// Global CSS variables, layer definitions, and configuration
+@forward "root2";
+
+// Subdir imports
+@forward "reboot2";
+@forward "../node_modules/bootstrap/scss/content";
+@forward "../node_modules/bootstrap/scss/layout";
+@forward "forms2";
+@forward "../node_modules/bootstrap/scss/buttons";
+
+// Components
+@forward "../node_modules/bootstrap/scss/accordion";
+@forward "../node_modules/bootstrap/scss/alert";
+@forward "../node_modules/bootstrap/scss/avatar";
+@forward "../node_modules/bootstrap/scss/badge";
+@forward "../node_modules/bootstrap/scss/breadcrumb";
+@forward "../node_modules/bootstrap/scss/chip";
+@forward "../node_modules/bootstrap/scss/card";
+@forward "../node_modules/bootstrap/scss/carousel";
+@forward "datepicker2";
+@forward "../node_modules/bootstrap/scss/dialog";
+@forward "../node_modules/bootstrap/scss/menu";
+@forward "../node_modules/bootstrap/scss/list-group";
+@forward "../node_modules/bootstrap/scss/nav";
+@forward "../node_modules/bootstrap/scss/nav-overflow";
+@forward "navbar2";
+@forward "../node_modules/bootstrap/scss/drawer";
+@forward "../node_modules/bootstrap/scss/pagination";
+@forward "../node_modules/bootstrap/scss/placeholder";
+@forward "../node_modules/bootstrap/scss/popover";
+@forward "../node_modules/bootstrap/scss/progress";
+@forward "../node_modules/bootstrap/scss/spinner";
+@forward "../node_modules/bootstrap/scss/stepper";
+@forward "../node_modules/bootstrap/scss/toasts";
+@forward "../node_modules/bootstrap/scss/tooltip";
+@forward "../node_modules/bootstrap/scss/transitions";
+
+// Components retained from Bootstrap 4
+@forward "jumbotron4";
+@forward "media4";
 
 // Helpers
-@import "../node_modules/bootstrap/scss/helpers";
+@forward "../node_modules/bootstrap/scss/helpers";
 
 // Utilities
-@import "../node_modules/bootstrap/scss/utilities/api";
-@import "utilities/display-dark3";
+@forward "utilities3";
+@forward "../node_modules/bootstrap/scss/utilities/api";
+@forward "utilities/display-dark3";

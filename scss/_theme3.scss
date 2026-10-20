@@ -1,0 +1,46 @@
+@use "../node_modules/bootstrap/scss/colors" with (
+  $white: light-dark(#fff, #fcfcfc),
+  $black: light-dark(#000, #111),
+  $blue: light-dark(#069, #375a7f),
+  $indigo: light-dark(#817, #673ab7),
+  $purple: light-dark(#639, #654ea3),
+  $pink: light-dark(#e38, #e83e8c),
+  $red: light-dark(#f33, #e74c3c),
+  $orange: light-dark(#c50, #fd7e14),
+  $yellow: light-dark(#ed0, #f39c12),
+  $green: light-dark(#096, #00bc8c),
+  $teal: light-dark(#2cb, #45b5aa),
+  $cyan: light-dark(#0bc, #3498db),
+  $color-tokens: (
+    --gray-100: #f8f9fa,
+    --gray-200: light-dark(#e9ecef, #ebebeb),
+    --gray-300: #dee2e6,
+    --gray-400: #ced4da,
+    --gray-500: #adb5bd,
+    --gray-600: light-dark(#6c757d, #888),
+    --gray-700: light-dark(#495057, #444),
+    --gray-800: light-dark(#343a40, #303030),
+    --gray-900: light-dark(#212529, #222)
+  )
+);
+
+@use "../node_modules/bootstrap/scss/theme" with (
+  $theme-bgs: (
+    "body": light-dark(var(--white), var(--gray-900))
+  ),
+  $theme-fgs: (
+    "body": light-dark(var(--gray-900), var(--gray-300))
+  )
+);
+
+@use "root2" with (
+  $root-tokens: (
+    --body-font-family: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif',
+    --font-mono: 'SFMono-Regular, Consolas, "Liberation Mono", monospace',
+    --font-serif: 'Merriweather, "Palatino Linotype", Palatino, Georgia, serif',
+    --link-color: light-dark(var(--primary-base), color-mix(in srgb, var(--primary-base) 60%, #fff)),
+    --link-hover-color: color-mix(in srgb, var(--link-color) 80%, light-dark(#000, #fff)),
+    --code-color: light-dark(var(--pink-500), color-mix(in srgb, var(--pink-500) 60%, #fff)),
+    --border-color: light-dark(var(--gray-300), var(--gray-700))
+  )
+);

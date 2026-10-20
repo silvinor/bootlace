@@ -1,36 +1,28 @@
-/* From Bootstrap V4 */
+@use "../node_modules/bootstrap/scss/layout/breakpoints" as *;
+@use "../node_modules/bootstrap/scss/mixins/border-radius" as *;
 
-.jumbotron {
+@layer components {
+  .jumbotron {
+    --jumbotron-color: inherit;
+    --jumbotron-bg: light-dark(var(--gray-200), var(--gray-800));
+    --jumbotron-padding-y: 2rem;
+    --jumbotron-padding-x: 1rem;
 
-  --#{$prefix}jumbotron-color: #{$jumbotron-color};
-  --#{$prefix}jumbotron-bg: #{$jumbotron-bg};
-  --#{$prefix}jumbotron-padding-y: #{$jumbotron-padding};
-  --#{$prefix}jumbotron-padding-x: #{$jumbotron-padding * .5};
+    padding: var(--jumbotron-padding-y) var(--jumbotron-padding-x);
+    margin-bottom: var(--jumbotron-padding-y);
+    color: var(--jumbotron-color);
+    background-color: var(--jumbotron-bg);
+    @include border-radius(var(--radius-5));
 
-  padding: var(--#{$prefix}jumbotron-padding-y) var(--#{$prefix}jumbotron-padding-x);
-  margin-bottom: var(--#{$prefix}jumbotron-padding-y);
-  color: var(--#{$prefix}jumbotron-color);
-  background-color: var(--#{$prefix}jumbotron-bg);
-  @include border-radius($border-radius-lg);
-
-  @include media-breakpoint-up(sm) {
-    --#{$prefix}jumbotron-padding-y: #{$jumbotron-padding * 2};
-    --#{$prefix}jumbotron-padding-x: #{$jumbotron-padding};
-  }
-}
-
-.jumbotron-fluid {
-  padding-right: 0;
-  padding-left: 0;
-  @include border-radius(0);
-}
-
-
-@if $enable-dark-mode {
-  @include color-mode(dark, true) {
-    .jumbotron {
-      --#{$prefix}jumbotron-color: #{$jumbotron-color-dark};
-      --#{$prefix}jumbotron-bg: #{$jumbotron-bg-dark};
+    @include media-breakpoint-up(sm) {
+      --jumbotron-padding-y: 4rem;
+      --jumbotron-padding-x: 2rem;
     }
+  }
+
+  .jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    @include border-radius(0);
   }
 }

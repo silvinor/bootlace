@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootlace Reboot kitchen sink</title>
+  <link rel="stylesheet" href="dist/css/bootlace-reboot.css">
+  <style>
+    /* Keep specimen typography, colors, borders, and controls under Reboot. */
+    .test-page {
+      max-inline-size: 80rem;
+      margin-inline: auto;
+      padding: clamp(1rem, 4vw, 3rem);
+    }
+
+    .test-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.25rem;
+      margin-block: 1.5rem;
+    }
+
+    .test-page > main > section {
+      margin-block: 3rem;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+      gap: 2rem;
+    }
+
+    .test-field {
+      display: grid;
+      gap: .375rem;
+      margin-block: 1rem;
+    }
+
+    .test-field > input,
+    .test-field > select,
+    .test-field > textarea,
+    .test-media > * {
+      max-inline-size: 100%;
+    }
+
+    .test-scroll {
+      overflow-x: auto;
+    }
+
+    .test-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+      gap: 1rem;
+    }
+
+    .test-chip {
+      block-size: 4rem;
+      margin-block-end: .5rem;
+      background-color: var(--sample-color);
+    }
+
+    .test-frame {
+      inline-size: 100%;
+      block-size: 12rem;
+    }
+
+    .test-dialog {
+      position: static;
+      margin: 0;
+      max-inline-size: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-page">
+    <header id="top">
+      <h1>Bootlace Reboot kitchen sink</h1>
+      <p>This page loads <code>dist/css/bootlace-reboot.css</code> and uses native HTML specimens.</p>
+      <p>Change the browser or OS color preference to compare light and dark mode. Both modes are always present.</p>
+      <p>Use <kbd>Tab</kbd> and <kbd>Shift</kbd> + <kbd>Tab</kbd> to inspect keyboard focus. Resize the window to inspect wrapping.</p>
+      <nav class="test-nav" aria-label="Specimen sections">
+        <a href="#typography">Typography</a>
+        <a href="#links">Links</a>
+        <a href="#lists">Lists</a>
+        <a href="#code">Code</a>
+        <a href="#tables">Tables</a>
+        <a href="#forms">Forms</a>
+        <a href="#status">Status</a>
+        <a href="#media">Media</a>
+        <a href="#disclosure">Disclosure</a>
+        <a href="#direction">RTL</a>
+        <a href="#palette">Palette</a>
+        <a href="#appearance">OS appearance</a>
+      </nav>
+      <hr>
+    </header>
+
+    <main>
+      <section id="typography" aria-labelledby="typography-title">
+        <h2 id="typography-title">Typography</h2>
+        <div class="test-grid">
+          <div>
+            <p>Native heading elements:</p>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+          </div>
+          <div>
+            <p>Reboot heading classes on paragraph elements:</p>
+            <p class="h1">Paragraph with .h1</p>
+            <p class="h2">Paragraph with .h2</p>
+            <p class="h3">Paragraph with .h3</p>
+            <p class="h4">Paragraph with .h4</p>
+            <p class="h5">Paragraph with .h5</p>
+            <p class="h6">Paragraph with .h6</p>
+          </div>
+        </div>
+        <p>This paragraph shows body text and line spacing. Long text must wrap within the available width. The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</p>
+        <p><strong>Strong importance</strong>, <b>bold text</b>, <em>emphasis</em>, <i>italic text</i>, <u>underlined text</u>, <s>outdated text</s>, <del>deleted text</del>, and <ins>inserted text</ins>.</p>
+        <p><small>Small text</small>, <span class="small">the .small class</span>, <mark>highlighted text</mark>, and <span class="mark">the .mark class</span>.</p>
+        <p>Water is H<sub>2</sub>O. Four squared is 4<sup>2</sup>. The meeting starts at <time datetime="2026-10-20T09:00">9:00 AM</time>.</p>
+        <p><abbr title="Hypertext Markup Language">HTML</abbr> is an abbreviation. <abbr class="initialism" title="Cascading Style Sheets">CSS</abbr> uses the initialism class.</p>
+        <p><q>A short inline quotation.</q> A <dfn>specimen</dfn> is an example element on this page.</p>
+        <blockquote>
+          <p>A block quotation with two paragraphs. Inspect its margins and the text inside it.</p>
+          <p>The second paragraph uses the same body font and line height.</p>
+          <footer>Example attribution, <cite>Reboot specimen</cite></footer>
+        </blockquote>
+        <address>
+          Example Studio<br>
+          123 Sample Street<br>
+          Sydney, NSW 2000<br>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+        </address>
+        <hr>
+        <p>The horizontal rule above uses the current border color.</p>
+      </section>
+
+      <section id="links" aria-labelledby="links-title">
+        <h2 id="links-title">Links and anchors</h2>
+        <p><a href="#top">A normal link back to the top</a>. Inspect its default, hover, active, visited, and keyboard focus states.</p>
+        <p><a>A placeholder anchor without an href</a>. This must appear as ordinary text.</p>
+        <p><a href="#code"><code>Code inside a link</code></a> and <a href="#typography"><strong>strong text inside a link</strong></a>.</p>
+        <p>A long URL tests wrapping: <a href="#links">https://example.com/a-long-path/with-many-segments/to-inspect-how-links-wrap-at-narrow-window-widths</a>.</p>
+      </section>
+
+      <section id="lists" aria-labelledby="lists-title">
+        <h2 id="lists-title">Lists</h2>
+        <div class="test-grid">
+          <div>
+            <h3>Unordered and nested</h3>
+            <ul>
+              <li>First item</li>
+              <li>Second item
+                <ul>
+                  <li>Nested unordered item</li>
+                  <li>Another nested item
+                    <ol>
+                      <li>Ordered item inside an unordered list</li>
+                      <li>Another ordered item</li>
+                    </ol>
+                  </li>
+                </ul>
+              </li>
+              <li>A longer list item that wraps across lines when the available space becomes narrow.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Ordered and reversed</h3>
+            <ol>
+              <li>First step</li>
+              <li>Second step
+                <ol>
+                  <li>Nested ordered step</li>
+                  <li>Another nested step</li>
+                </ol>
+              </li>
+              <li>Final step</li>
+            </ol>
+            <ol start="5" reversed>
+              <li>Five</li>
+              <li>Four</li>
+              <li>Three</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Definitions</h3>
+            <dl>
+              <dt>Reboot</dt>
+              <dd>A set of baseline styles for native HTML elements.</dd>
+              <dt>Light mode</dt>
+              <dt>Dark mode</dt>
+              <dd>The browser or OS preference selects the active appearance.</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="code" aria-labelledby="code-title">
+        <h2 id="code-title">Code and keyboard input</h2>
+        <p>Inline code: <code>color: var(--fg-body);</code>. Sample program output: <samp>Build completed.</samp></p>
+        <p>Press <kbd>Enter</kbd>, or use a nested key combination: <kbd><kbd>Ctrl</kbd> + <kbd>S</kbd></kbd>.</p>
+        <p>A variable: <var>width</var> × <var>height</var>.</p>
+        <pre><code>&lt;link rel="stylesheet" href="dist/css/bootlace-reboot.css"&gt;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+// A deliberately long line tests horizontal scrolling without changing the page width: abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789</code></pre>
+      </section>
+
+      <section id="tables" aria-labelledby="tables-title">
+        <h2 id="tables-title">Tables</h2>
+        <div class="test-scroll" role="region" aria-label="Sample data table" tabindex="0">
+          <table>
+            <caption>Native table elements without Bootstrap component classes.</caption>
+            <thead>
+              <tr><th scope="col">Element</th><th scope="col">Value</th><th scope="col">Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Body text</th><td>16 px</td><td>A sample size, subject to browser preferences.</td></tr>
+              <tr><th scope="row">Code</th><td><code>--font-mono</code></td><td>A code specimen inside a cell.</td></tr>
+              <tr><th scope="row">Link</th><td><a href="#forms">Open the forms section</a></td><td>A focusable table cell link.</td></tr>
+              <tr><th scope="row">Merged cells</th><td colspan="2">This cell spans two columns.</td></tr>
+              <tr><th scope="row" rowspan="2">Multiple rows</th><td>First</td><td>A row-spanning header.</td></tr>
+              <tr><td>Second</td><td>The remaining row.</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">Footer</th><td colspan="2">End of the sample table.</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <section id="forms" aria-labelledby="forms-title">
+        <h2 id="forms-title">Forms and native controls</h2>
+        <p>Controls use Reboot and the browser defaults. Submit uses native validation and reloads this local page.</p>
+        <form action="test-reboot.html#forms" method="get">
+          <div class="test-grid">
+            <fieldset>
+              <legend>Text and number inputs</legend>
+              <div class="test-field"><label for="text">Text</label><input id="text" name="text" type="text" placeholder="Placeholder text" autocomplete="off"></div>
+              <div class="test-field"><label for="required">Required text</label><input id="required" type="text" required placeholder="Leave empty to inspect validation" aria-describedby="required-help"><small id="required-help">This field must contain a value before submission.</small></div>
+              <div class="test-field"><label for="email">Email</label><input id="email" type="email" placeholder="name@example.com" autocomplete="off"></div>
+              <div class="test-field"><label for="password">Password</label><input id="password" type="password" placeholder="Example only" autocomplete="new-password"></div>
+              <div class="test-field"><label for="search">Search</label><input id="search" type="search" value="Clear this search"></div>
+              <div class="test-field"><label for="telephone">Telephone</label><input id="telephone" type="tel" placeholder="+61 2 1234 5678" autocomplete="off"></div>
+              <div class="test-field"><label for="url">URL</label><input id="url" type="url" placeholder="https://example.com"></div>
+              <div class="test-field"><label for="number">Number</label><input id="number" type="number" min="0" max="100" step="5" value="25"></div>
+              <div class="test-field"><label for="readonly">Read-only text</label><input id="readonly" type="text" value="Read-only value" readonly></div>
+              <div class="test-field"><label for="disabled">Disabled text</label><input id="disabled" type="text" value="Disabled value" disabled></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Dates, choices, and text areas</legend>
+              <div class="test-field"><label for="date">Date</label><input id="date" type="date" value="2026-10-20"></div>
+              <div class="test-field"><label for="datetime">Local date and time</label><input id="datetime" type="datetime-local" value="2026-10-20T09:30"></div>
+              <div class="test-field"><label for="month">Month</label><input id="month" type="month" value="2026-10"></div>
+              <div class="test-field"><label for="week">Week</label><input id="week" type="week" value="2026-W43"></div>
+              <div class="test-field"><label for="time">Time</label><input id="time" type="time" value="09:30"></div>
+              <div class="test-field"><label for="select">Select with option groups</label><select id="select"><option value="">Choose an option</option><optgroup label="Fruit"><option>Apple</option><option>Orange</option></optgroup><optgroup label="Vegetables"><option>Carrot</option><option disabled>Unavailable option</option></optgroup></select></div>
+              <div class="test-field"><label for="multiple">Multiple select</label><select id="multiple" multiple size="4"><option selected>First option</option><option>Second option</option><option selected>Third option</option><option>Fourth option</option></select></div>
+              <div class="test-field"><label for="suggestion">Input with a datalist</label><input id="suggestion" type="text" list="suggestions" placeholder="Type a color"><datalist id="suggestions"><option value="Blue"><option value="Green"><option value="Orange"></datalist></div>
+              <div class="test-field"><label for="textarea">Resizable text area</label><textarea id="textarea" rows="4" placeholder="Type several lines">A text area with an initial value.
+Resize it to inspect the native handle.</textarea></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Selections and special controls</legend>
+              <p><label><input type="checkbox" name="check" value="first" checked> Checked checkbox</label></p>
+              <p><label><input type="checkbox" name="check" value="second"> Unchecked checkbox</label></p>
+              <p><label><input type="checkbox" checked disabled> Disabled checked checkbox</label></p>
+              <p><label><input type="checkbox" disabled> Disabled unchecked checkbox</label></p>
+              <p><label><input type="radio" name="sample-radio" value="first" checked> First radio option</label></p>
+              <p><label><input type="radio" name="sample-radio" value="second"> Second radio option</label></p>
+              <p><label><input type="radio" name="disabled-radio" checked disabled> Disabled radio option</label></p>
+              <div class="test-field"><label for="range">Range</label><input id="range" type="range" min="0" max="100" value="45"></div>
+              <div class="test-field"><label for="color">Native color picker</label><input id="color" type="color" value="#006699"></div>
+              <div class="test-field"><label for="file">File input</label><input id="file" type="file" multiple></div>
+              <p><button type="button">Button element</button> <button type="button" disabled>Disabled button</button></p>
+              <p><input type="button" value="Input button"> <input type="button" value="Disabled input button" disabled></p>
+              <p><button type="submit">Submit and validate</button> <button type="reset">Reset form</button></p>
+              <p><input type="submit" value="Input submit"> <input type="reset" value="Input reset"></p>
+            </fieldset>
+
+            <fieldset disabled>
+              <legend>Disabled fieldset</legend>
+              <p>Every control in this fieldset is disabled by the fieldset.</p>
+              <div class="test-field"><label for="fieldset-text">Text</label><input id="fieldset-text" value="Disabled by parent"></div>
+              <div class="test-field"><label for="fieldset-select">Select</label><select id="fieldset-select"><option>Disabled choice</option></select></div>
+              <p><label><input type="checkbox" checked> Disabled selection</label></p>
+              <button type="button">Disabled by parent</button>
+            </fieldset>
+          </div>
+        </form>
+      </section>
+
+      <section id="status" aria-labelledby="status-title">
+        <h2 id="status-title">Progress, meters, and output</h2>
+        <div class="test-grid">
+          <div>
+            <div class="test-field"><label for="progress">Progress at 60%</label><progress id="progress" value="60" max="100">60%</progress></div>
+            <div class="test-field"><label for="indeterminate">Indeterminate progress</label><progress id="indeterminate">In progress</progress></div>
+          </div>
+          <div>
+            <div class="test-field"><label for="meter">Meter in the preferred range</label><meter id="meter" min="0" max="100" low="25" high="75" optimum="50" value="50">50 out of 100</meter></div>
+            <div class="test-field"><label for="meter-low">Meter outside the preferred range</label><meter id="meter-low" min="0" max="100" low="25" high="75" optimum="50" value="10">10 out of 100</meter></div>
+            <p>Output element: <output>Example result: 42</output>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="media" aria-labelledby="media-title">
+        <h2 id="media-title">Images and embedded content</h2>
+        <div class="test-grid">
+          <figure>
+            <img src="docs/bootlace.svg" alt="Bootlace logo" width="128" height="128">
+            <figcaption>A local image inside a figure.</figcaption>
+          </figure>
+          <figure>
+            <p>Text baseline <img src="docs/bootlace.svg" alt="" width="32" height="32"> and an inline SVG
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="Sample circle"><circle cx="16" cy="16" r="12" fill="currentColor"></circle></svg> alongside text.</p>
+            <figcaption>Inspect the vertical alignment of images and SVG elements.</figcaption>
+          </figure>
+        </div>
+        <div class="test-grid test-media">
+          <div>
+            <h3>Native media controls</h3>
+            <p>No audio or video files are attached. These controls show their empty state.</p>
+            <p><audio controls preload="none" aria-label="Audio control specimen"></audio></p>
+            <video controls preload="none" width="320" height="180" aria-label="Video control specimen"></video>
+          </div>
+          <div>
+            <h3>Embedded document</h3>
+            <iframe class="test-frame" title="Embedded document with the same reboot CSS" srcdoc="<!doctype html><html lang='en'><head><meta charset='utf-8'><link rel='stylesheet' href='dist/css/bootlace-reboot.css'></head><body><main style='padding:1rem'><h3>Embedded Reboot</h3><p>This document loads the same CSS and follows the OS preference.</p><label for='embedded-input'>Native input</label> <input id='embedded-input' placeholder='Embedded control'></main></body></html>"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="disclosure" aria-labelledby="disclosure-title">
+        <h2 id="disclosure-title">Disclosure, dialog, and hidden content</h2>
+        <details>
+          <summary>Closed disclosure. Open with a click or the keyboard.</summary>
+          <p>Disclosure content uses ordinary paragraphs and links.</p>
+          <p><a href="#top">Focusable link inside the disclosure</a></p>
+        </details>
+        <details open>
+          <summary>Initially open disclosure</summary>
+          <p>This specimen starts open.</p>
+        </details>
+        <h3>Nonmodal dialog</h3>
+        <dialog class="test-dialog" open aria-labelledby="dialog-title">
+          <h4 id="dialog-title">Native dialog specimen</h4>
+          <p>This dialog stays open in the page. Its positioning alone is adjusted for this specimen.</p>
+          <form method="dialog"><button>Close dialog</button></form>
+        </dialog>
+        <p>The following hidden specimen must occupy no space and show no text.</p>
+        <p hidden>HIDDEN SPECIMEN: if this sentence appears, the hidden rule failed.</p>
+      </section>
+
+      <section id="direction" aria-labelledby="direction-title">
+        <h2 id="direction-title">Right-to-left content</h2>
+        <p>The block below has <code>dir="rtl"</code>. Email, URL, telephone, and number inputs must retain left-to-right entry.</p>
+        <div dir="rtl">
+          <p lang="ar">هذا نص عربي لاختبار اتجاه الكتابة وعرض العناصر داخل الصفحة.</p>
+          <ul><li lang="ar">العنصر الأول</li><li lang="ar">العنصر الثاني</li></ul>
+          <div class="test-grid">
+            <div class="test-field"><label for="rtl-email">Email in RTL context</label><input id="rtl-email" type="email" value="hello@example.com"></div>
+            <div class="test-field"><label for="rtl-url">URL in RTL context</label><input id="rtl-url" type="url" value="https://example.com"></div>
+            <div class="test-field"><label for="rtl-phone">Telephone in RTL context</label><input id="rtl-phone" type="tel" value="+61 2 1234 5678"></div>
+            <div class="test-field"><label for="rtl-number">Number in RTL context</label><input id="rtl-number" type="number" value="12345"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="palette" aria-labelledby="palette-title">
+        <h2 id="palette-title">Bootlace palette</h2>
+        <p>These samples use the current CSS variables. Change the browser or OS preference to inspect the other palette.</p>
+        <div class="test-palette">
+          <figure><div class="test-chip" style="--sample-color: var(--blue-500)" aria-hidden="true"></div><figcaption><code>--blue-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--indigo-500)" aria-hidden="true"></div><figcaption><code>--indigo-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--purple-500)" aria-hidden="true"></div><figcaption><code>--purple-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--pink-500)" aria-hidden="true"></div><figcaption><code>--pink-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--red-500)" aria-hidden="true"></div><figcaption><code>--red-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--orange-500)" aria-hidden="true"></div><figcaption><code>--orange-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--yellow-500)" aria-hidden="true"></div><figcaption><code>--yellow-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--green-500)" aria-hidden="true"></div><figcaption><code>--green-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--teal-500)" aria-hidden="true"></div><figcaption><code>--teal-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--cyan-500)" aria-hidden="true"></div><figcaption><code>--cyan-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--gray-100)" aria-hidden="true"></div><figcaption><code>--gray-100</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--gray-500)" aria-hidden="true"></div><figcaption><code>--gray-500</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--gray-900)" aria-hidden="true"></div><figcaption><code>--gray-900</code></figcaption></figure>
+          <figure><div class="test-chip" style="--sample-color: var(--fg-body)" aria-hidden="true"></div><figcaption><code>--fg-body</code></figcaption></figure>
+        </div>
+      </section>
+
+      <section id="appearance" aria-labelledby="appearance-title">
+        <h2 id="appearance-title">OS appearance and ignored attributes</h2>
+        <p>Both specimens below must follow the same browser or OS preference as the rest of the page. Their fixed theme attributes must have no effect.</p>
+        <div class="test-grid">
+          <fieldset data-bs-theme="light" data-theme="light">
+            <legend>Ignored light attributes</legend>
+            <p>Body text, <a href="#appearance">links</a>, <code>code</code>, and <mark>highlights</mark> must match the page.</p>
+            <div class="test-field"><label for="ignored-light">Native input</label><input id="ignored-light" value="Follow the OS preference"></div>
+            <p><label><input type="checkbox" checked> Native checkbox</label></p>
+            <button type="button">Native button</button>
+          </fieldset>
+          <fieldset data-bs-theme="dark" data-theme="dark">
+            <legend>Ignored dark attributes</legend>
+            <p>Body text, <a href="#appearance">links</a>, <code>code</code>, and <mark>highlights</mark> must match the page.</p>
+            <div class="test-field"><label for="ignored-dark">Native input</label><input id="ignored-dark" value="Follow the OS preference"></div>
+            <p><label><input type="checkbox" checked> Native checkbox</label></p>
+            <button type="button">Native button</button>
+          </fieldset>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <hr>
+      <p>Only Reboot and this page's layout styles are loaded. No Bootstrap component stylesheet, JavaScript, or external font is required.</p>
+      <p><a href="#top">Back to the top</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+@forward "../node_modules/bootstrap/scss/content/reboot" with (
+  $reboot-mark-tokens: (
+    --mark-bg: light-dark(color-mix(in srgb, var(--yellow-500) 20%, #fff), color-mix(in srgb, var(--yellow-500) 40%, #000))
+  )
+);

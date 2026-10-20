@@ -1,141 +1,121 @@
-$utilities: map-merge(
-  $utilities,
-  (
+@use "sass:map";
+@use "../node_modules/bootstrap/scss/config" as *;
+@use "../node_modules/bootstrap/scss/layout/breakpoints" as *;
+@use "../node_modules/bootstrap/scss/mixins/utilities" as *;
 
-    // Legacy/BS4 Left & Right alignments
-    "margin-rigth": (
-      responsive: true,
-      property: margin-right,
-      class: mr,
-      values: map-merge($spacers, (auto: auto))
-    ),
-    "margin-left": (
-      responsive: true,
-      property: margin-left,
-      class: ml,
-      values: map-merge($spacers, (auto: auto))
-    ),
-    "padding-right": (
-      responsive: true,
-      property: padding-right,
-      class: pr,
-      values: $spacers
-    ),
-    "padding-left": (
-      responsive: true,
-      property: padding-left,
-      class: pl,
-      values: $spacers
-    ),
-    "text-align": map-merge(
-      map-get($utilities, "text-align"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "text-align"), "values"), (
-            left: left,
-            right: right,
-            justify: justify
-          ),
-        ),
-      ),
-    ),
-    // "text-justify": (
-    //   property: text-justify,  // Note: Not really supported in Chrome
-    //   local-vars: (
-    //     "text-align": "justify"
-    //   ),
-    //   values: (
-    //     auto: auto,
-    //     inter-word: inter-word,
-    //     inter-character: inter-character,
-    //     none: none,
-    //     initial: initial,
-    //     inherit: inherit
-    //   )
-    // ),
+// Keep the old spacing scale for the legacy class names.
+$legacy-spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3
+);
 
-    // Legacy/BS4 Left & Right borders
-    "rounded-right": (
-      property: border-top-right-radius border-bottom-right-radius,
-      class: rounded-right,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill)
-      )
-    ),
-    "rounded-left": (
-      property: border-top-left-radius border-bottom-left-radius,
-      class: rounded-left,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill)
-      )
-    ),
-
-    // Legacy/BS4 Left & Right floats
-    "float": map-merge(
-      map-get($utilities, "float"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "float"), "values"), (
-            left: left,
-            right: right
-          ),
-        ),
-      ),
-    ),
-
-    // Missing color inversion
-    "color": map-merge(
-      map-get($utilities, "color"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "color"), "values"), (
-            "inverted": var(--#{$prefix}body-bg),
-            "inherit": inherit,
-            "initial": initial,
-            "revert": revert,
-            "revert-layer": revert-layer,
-            "unset": unset
-          ),
-        ),
-      ),
-    ),
-    "background-color": map-merge(
-      map-get($utilities, "background-color"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "background-color"), "values"), (
-            "inverted": var(--#{$prefix}body-color)
-          ),
-        ),
-      ),
-    ),
-
-    // Text font sets
-    "text-font": (
-      property: font-family,
-      class: text,
-      values: (
-        "sans-serif": var(--#{$prefix}font-sans-serif),
-        "serif": var(--#{$prefix}font-serif),
-        "monospace": var(--#{$prefix}font-monospace)
-      ),
-    ),
-
+$legacy-responsive-utilities: (
+  "margin-right": (
+    property: margin-right,
+    class: mr,
+    values: map.merge($legacy-spacers, (auto: auto))
+  ),
+  "margin-left": (
+    property: margin-left,
+    class: ml,
+    values: map.merge($legacy-spacers, (auto: auto))
+  ),
+  "padding-right": (
+    property: padding-right,
+    class: pr,
+    values: $legacy-spacers
+  ),
+  "padding-left": (
+    property: padding-left,
+    class: pl,
+    values: $legacy-spacers
+  ),
+  "text-align": (
+    property: text-align,
+    class: text,
+    values: (left: left, right: right, justify: justify)
+  ),
+  "float": (
+    property: float,
+    class: float,
+    values: (left: left, right: right)
   )
 );
+
+$legacy-radii: (
+  null: .375rem,
+  0: 0,
+  1: .25rem,
+  2: .375rem,
+  3: .5rem,
+  4: 1rem,
+  5: 2rem,
+  circle: 50%,
+  pill: var(--radius-pill)
+);
+
+$legacy-utilities: (
+  "rounded-right": (
+    property: border-top-right-radius border-bottom-right-radius,
+    class: rounded-right,
+    values: $legacy-radii
+  ),
+  "rounded-left": (
+    property: border-top-left-radius border-bottom-left-radius,
+    class: rounded-left,
+    values: $legacy-radii
+  ),
+  "color": (
+    property: color,
+    class: text,
+    values: (
+      inverted: var(--bg-body),
+      inherit: inherit,
+      initial: initial,
+      revert: revert,
+      revert-layer: revert-layer,
+      unset: unset
+    )
+  ),
+  "background-color": (
+    property: background-color,
+    class: bg,
+    values: (inverted: var(--fg-body))
+  ),
+  "text-font": (
+    property: font-family,
+    class: text,
+    values: (
+      sans-serif: var(--body-font-family),
+      serif: var(--font-serif),
+      monospace: var(--font-mono)
+    )
+  )
+);
+
+@layer utilities {
+  @each $breakpoint in map.keys($breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: "";
+      @if breakpoint-min($breakpoint) != null {
+        $infix: "-#{$breakpoint}";
+      }
+
+      // Preserve legacy responsive names such as .mr-sm-3.
+      @each $key, $utility in $legacy-responsive-utilities {
+        @include generate-utility(map.merge($utility, (
+          class: "#{map.get($utility, class)}#{$infix}",
+          important: true
+        )));
+      }
+    }
+  }
+
+  @each $key, $utility in $legacy-utilities {
+    @include generate-utility(map.merge($utility, (important: true)));
+  }
+}
