@@ -69,7 +69,7 @@ $colors: (
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.2 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG/#contrast-minimum
-$min-contrast-ratio:   3.0 !default;  // adjusted to the "large text" spec., was 4.5
+$min-contrast-ratio:   3 !default;  // adjusted to the "large text" spec., was 4.5
 
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark:      $black !default;
@@ -603,9 +603,9 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif !default;
-$font-family-serif:           Merriweather, "Palatino Linotype", Palatino, Georgia, serif !default;
-$font-family-monospace:       SFMono-Regular, Consolas, "Liberation Mono", monospace !default;
+$font-family-sans-serif:      system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-serif:           ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
 $font-family-base:            var(--#{$prefix}font-sans-serif) !default;
 $font-family-code:            var(--#{$prefix}font-monospace) !default;
@@ -1540,6 +1540,7 @@ $modal-sm:                          300px !default;
 $modal-md:                          500px !default;
 $modal-lg:                          800px !default;
 $modal-xl:                          1140px !default;
+$modal-xxl:                         1320px !default;
 
 $modal-fade-transform:              translate(0, -50px) !default;
 $modal-show-transform:              none !default;
